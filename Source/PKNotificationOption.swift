@@ -28,4 +28,9 @@ enum PKNotificationOption {
         }
         return notif
     }
+    
+    
+    func navbarHeight() -> Float {
+        return 53.0
+    }
 }

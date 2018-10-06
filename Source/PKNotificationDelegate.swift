@@ -8,6 +8,12 @@
 
 import Foundation
 
-protocol PKNotificationDelegate: class {
+public protocol PKNotificationDelegate: class {
+    
+    func notificationDidDissmiss(notification: PKNotification)
+    
     func notificationDidAppear(notification: PKNotification)
+    
+    func didTapOnNotification(notification: PKNotification)
+    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PKNotification: NSObject {
+public class PKNotification: NSObject {
     
     var text: String!
     var image: UIImage!
