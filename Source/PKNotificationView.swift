@@ -8,14 +8,34 @@
 
 import UIKit
 
-class PKNotificationView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+public class PKNotificationView: UIView {
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
 
+    public convenience init(title: String) {
+        self.init()
+    }
+    
+    public convenience init(title: String, subtitle: String) {
+        self.init()
+    }
+    
+    public convenience init(title: String, subtitle: String, image: UIImage) {
+        self.init()
+    }
+    
+    public convenience init(image: String) {
+        self.init()
+    }
+    
+    public convenience init(title: String, image: String) {
+        self.init()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
