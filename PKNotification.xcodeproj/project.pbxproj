@@ -16,6 +16,7 @@
 		2C284CF7216956160068C0C7 /* PKNotificationOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C284CF6216956160068C0C7 /* PKNotificationOption.swift */; };
 		2C284CF9216956350068C0C7 /* PKNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C284CF8216956350068C0C7 /* PKNotificationDelegate.swift */; };
 		2C284CFB216956750068C0C7 /* PKNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C284CFA216956750068C0C7 /* PKNotification.swift */; };
+		2C2D3A742169FFAE005588E4 /* PKNotificationViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D3A732169FFAE005588E4 /* PKNotificationViewStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		2C284CF8216956350068C0C7 /* PKNotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKNotificationDelegate.swift; sourceTree = "<group>"; };
 		2C284CFA216956750068C0C7 /* PKNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKNotification.swift; sourceTree = "<group>"; };
 		2C284CFC21695F2A0068C0C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2C2D3A732169FFAE005588E4 /* PKNotificationViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKNotificationViewStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 		2C284CD3216953B70068C0C7 = {
 			isa = PBXGroup;
 			children = (
+				2C284CFC21695F2A0068C0C7 /* README.md */,
 				2C284CF1216954760068C0C7 /* Source */,
 				2C284CDE216953B70068C0C7 /* Example */,
 				2C284CDD216953B70068C0C7 /* Products */,
@@ -70,7 +73,6 @@
 				2C284CE6216953B80068C0C7 /* Assets.xcassets */,
 				2C284CE8216953B80068C0C7 /* LaunchScreen.storyboard */,
 				2C284CEB216953B80068C0C7 /* Info.plist */,
-				2C284CFC21695F2A0068C0C7 /* README.md */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -81,6 +83,7 @@
 				2C284CFA216956750068C0C7 /* PKNotification.swift */,
 				2C284CF2216954CF0068C0C7 /* PKNotificationView.swift */,
 				2C284CF6216956160068C0C7 /* PKNotificationOption.swift */,
+				2C2D3A732169FFAE005588E4 /* PKNotificationViewStyle.swift */,
 				2C284CF8216956350068C0C7 /* PKNotificationDelegate.swift */,
 			);
 			path = Source;
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2D3A742169FFAE005588E4 /* PKNotificationViewStyle.swift in Sources */,
 				2C284CF7216956160068C0C7 /* PKNotificationOption.swift in Sources */,
 				2C284CF9216956350068C0C7 /* PKNotificationDelegate.swift in Sources */,
 				2C284CE2216953B70068C0C7 /* ViewController.swift in Sources */,
