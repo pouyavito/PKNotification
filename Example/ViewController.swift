@@ -14,8 +14,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        notif = PKNotificationView(title: "Bla bla")
+        notif = PKNotificationView(style: PKNotificationViewStyle.viewStyle.floating)
         view.addSubview(notif)
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+            self.notif.show(title: "Hello")
+        }
+        
     }
 
 

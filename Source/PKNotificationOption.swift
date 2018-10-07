@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum PKNotificationOption {
+public enum PKNotificationOption {
     
     case text, textImage, image, textSub, textSubImage
     

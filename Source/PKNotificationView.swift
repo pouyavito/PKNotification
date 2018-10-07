@@ -17,10 +17,24 @@ public class PKNotificationView: UIView {
     public var delegate: PKNotificationDelegate!
     fileprivate var option: PKNotificationOption!
     
+    public var style: PKNotificationViewStyle.viewStyle = .floating
+    public var defaultFont = PKNotificationViewStyle.fonts.defaultFont()
+//    public var type = PKNotificationViewStyle.defaultTypes.getColors()
+    
     fileprivate var notification: PKNotification!
+    
+    public var damping: CGFloat = 0.8
+    public var remainDuration: TimeInterval = 5.0
+    public var animationDuration: TimeInterval = 0.3
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    public convenience init(style: PKNotificationViewStyle.viewStyle) {
+        self.init()
+        self.style = style
+        setupContainer()
     }
 
     public convenience init(title: String) {
@@ -129,6 +143,8 @@ public class PKNotificationView: UIView {
         }
     }
     
+    fileprivate var containerTopAnchor: NSLayoutConstraint!
+    
     fileprivate func setupContainer() {
         translatesAutoresizingMaskIntoConstraints = false
         let top = topLayer()
@@ -140,9 +156,11 @@ public class PKNotificationView: UIView {
         }
         
         if #available(iOS 11.0, *) {
-            containerView.topAnchor.constraint(equalTo: top.safeAreaLayoutGuide.topAnchor).isActive = true
+            containerTopAnchor = containerView.topAnchor.constraint(equalTo: top.safeAreaLayoutGuide.topAnchor, constant: -180)
+            containerTopAnchor.isActive = true
         } else {
-            containerView.topAnchor.constraint(equalTo: top.topAnchor).isActive = true
+            containerTopAnchor = containerView.topAnchor.constraint(equalTo: top.topAnchor, constant: -180)
+            containerTopAnchor.isActive = true
         }
         containerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         containerView.centerXAnchor.constraint(equalTo: top.centerXAnchor).isActive = true
@@ -154,8 +172,8 @@ public class PKNotificationView: UIView {
         backgroundView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
 //        backgroundView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         backgroundView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
-        backgroundView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        backgroundView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.95).isActive = true
+        backgroundView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        backgroundView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1).isActive = true
         backgroundView.layer.cornerRadius = 10
         if option == .text {
             setupTitle()
@@ -179,15 +197,30 @@ public class PKNotificationView: UIView {
         titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 10).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: backgroundView.leftAnchor, constant: 10).isActive = true
         titleLabel.text = titleText
+        titleLabel.font = defaultFont
+//        titleLabel.textColor = textColor
     }
     
     fileprivate func setupSubtite() {
-        
+        backgroundView.addSubview(subtitleLabel)
+        subtitleLabel.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10).isActive = true
+        subtitleLabel.leftAnchor.constraint(equalTo: backgroundView.leftAnchor, constant: 10).isActive = true
+        subtitleLabel.text = subtitleText
     }
     
     fileprivate func setupImageView() {
         
     }
     
+    public func show(title: String) {
+        let animation = UIViewPropertyAnimator(duration: animationDuration, dampingRatio: damping) {
+            self.containerTopAnchor.constant = 0
+            self.containerView.layoutIfNeeded()
+            self.topLayer().layoutIfNeeded()
+        }
+        animation.startAnimation()
+        titleText = title
+        titleLabel.text = title
+    }
     
 }
